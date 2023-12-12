@@ -1,0 +1,11 @@
+function diffs = get_online_offline_diffs_per_timepoint(x,P,opt)
+n = length(x);
+diffs = zeros(n-1);
+for k=2:n
+    dif = 0
+    for i=1:k
+        dif = dif + (P(i)*x(i)-(i/n)*opt);
+    end
+    diffs(k-1) = dif
+end
+
